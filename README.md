@@ -47,7 +47,7 @@ Entonces: debe devolver un status 200 y en el body, un arreglo con los eventos h
 
 ```
 Dado: Una consulta al servicio
-Cuando: realice una solicitud a /api/history/:ocurrence, tomando en cuenta que :ocurrence es un string de largo = 2, con caracteres alfanuméricos o solo númericos, independiente del case de :country
+Cuando: realice una solicitud a /api/history/:ocurrence, tomando en cuenta que :ocurrence es un string de largo = 2, con caracteres alfanuméricos o solo númericos, independiente del case de :occurrence
 Entonces: debe devolver un status 400 y en el body, un objeto con el siguiente formato:
 
 {

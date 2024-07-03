@@ -6,9 +6,9 @@ exports.getHistoricalEvents = (ocurrence) => {
     }
 
     if (ocurrence == 'ac' || ocurrence == 'AC' || ocurrence == 'Ac' || ocurrence == 'aC'){
-        return eventosJSON.result.events.filter((evn) => evn.date <= 0)
+        return eventosJSON.result.events.filter((evn) => evn.date <= 0).sort((a, b) => a.date - b.date)
     } else if(ocurrence =='dc' || ocurrence == 'DC' || ocurrence == 'Dc' || ocurrence == 'dC'){
-        return eventosJSON.result.events.filter((evn) => evn.date > 0)
+        return eventosJSON.result.events.filter((evn) => evn.date > 0).sort((a, b) => a.date - b.date)
     }
     
     throw new Error('Solo se aceptan caracteres no numéricos')

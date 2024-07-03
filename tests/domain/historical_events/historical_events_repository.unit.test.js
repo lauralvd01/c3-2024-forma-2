@@ -6,60 +6,68 @@ describe('Test unitarios de el Historical Events Repository', () => {
      * Test unitario para obtener eventos históricos de la era antes de cristo
      * 1. Caso exitoso : el parametro usado es un string igual a 'ac', usando cada caso de case posible
      */
-    test('Debería retornar eventos históricos de la era antes el cristo', () => {
+    test('Debería retornar eventos históricos de la era antes el cristo, desde el más antiguo al más nuevo', () => {
         const ocurrence = 'ac'
         const result = getHistoricalEvents.getHistoricalEvents(ocurrence)
 
         expect(result.length).toBeGreaterThan(0)
         expect(result[0]).toEqual(getFirstEventBeforeChrist())
+        expect(Number(result[0].date)).toBeLessThanOrEqual(Number(result[1].date))
 
         const ocurrence2 = 'AC'
         const result2 = getHistoricalEvents.getHistoricalEvents(ocurrence2)
 
         expect(result2.length).toBeGreaterThan(0)
         expect(result2[0]).toEqual(getFirstEventBeforeChrist())
+        expect(Number(result2[0].date)).toBeLessThanOrEqual(Number(result2[1].date))
 
         const ocurrence3 = 'Ac'
         const result3 = getHistoricalEvents.getHistoricalEvents(ocurrence3)
 
         expect(result3.length).toBeGreaterThan(0)
         expect(result3[0]).toEqual(getFirstEventBeforeChrist())
+        expect(Number(result3[0].date)).toBeLessThanOrEqual(Number(result3[1].date))
 
         const ocurrence4 = 'aC'
         const result4 = getHistoricalEvents.getHistoricalEvents(ocurrence4)
 
         expect(result4.length).toBeGreaterThan(0)
         expect(result4[0]).toEqual(getFirstEventBeforeChrist())
+        expect(Number(result4[0].date)).toBeLessThanOrEqual(Number(result4[1].date))
     })
 
     /**
      * Test unitario para obtener eventos históricos de la era después de cristo
      * 1. Caso exitoso : el parametro usado es un string igual a 'dc', usando cada caso de case posible
      */
-    test('Debería retornar eventos históricos de la era después de cristo', () => {
+    test('Debería retornar eventos históricos de la era después de cristo, desde el más antiguo al más nuevo', () => {
         const ocurrence = 'dc'
         const result = getHistoricalEvents.getHistoricalEvents(ocurrence)
 
         expect(result.length).toBeGreaterThan(0)
         expect(result[0]).toEqual(getFirstEventAfterChrist())
+        expect(Number(result[0].date)).toBeLessThanOrEqual(Number(result[1].date))
 
         const ocurrence2 = 'DC'
         const result2 = getHistoricalEvents.getHistoricalEvents(ocurrence2)
 
         expect(result2.length).toBeGreaterThan(0)
         expect(result2[0]).toEqual(getFirstEventAfterChrist())
+        expect(Number(result2[0].date)).toBeLessThanOrEqual(Number(result2[1].date))
 
         const ocurrence3 = 'Dc'
         const result3 = getHistoricalEvents.getHistoricalEvents(ocurrence3)
 
         expect(result3.length).toBeGreaterThan(0)
         expect(result3[0]).toEqual(getFirstEventAfterChrist())
+        expect(Number(result3[0].date)).toBeLessThanOrEqual(Number(result3[1].date))
 
         const ocurrence4 = 'dC'
         const result4 = getHistoricalEvents.getHistoricalEvents(ocurrence4)
 
         expect(result4.length).toBeGreaterThan(0)
         expect(result4[0]).toEqual(getFirstEventAfterChrist())
+        expect(Number(result4[0].date)).toBeLessThanOrEqual(Number(result4[1].date))
     })
 
     /**

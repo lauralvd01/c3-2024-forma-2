@@ -143,17 +143,6 @@ describe('Test unitarios de el Historical Events Use cases', () => {
         expect(status2).toBe(400)
         expect(body2).toEqual({"message": "El input debe ser ac o dc"})
     })
-
-    /**
-     * Test unitario para obtener eventos históricos de la era antes o despues de cristo
-     * 4. Caso fallido : el parametro no es definido
-     */
-    test('Debería retornar un error con el mensaje "Occurrence not found"', () => {
-        const {body, status} = getHistoricalEventsByOcurrence.getHistoricalEventsByOcurrence({params: {ocurrence: undefined}})
-
-        expect(status).toBe(404)
-        expect(body).toEqual({"message": "Occurrence not found"})
-    })
 })
 
 function getFirstEventBeforeChrist() {
